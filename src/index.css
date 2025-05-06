@@ -4,6 +4,24 @@
     animation: upDown 2s ease-in-out infinite;
   }
   
+  .landingPage{
+    background-color: #030014;
+  }
+
+  @media (min-width:1500px) {
+    .landingPage{
+      background: linear-gradient(
+      to right,
+      #030014 0%,
+      #030014 30%,
+      #241059 45%,
+      #241059 55%,
+      #030014 70%,
+      #030014 100%
+    );
+    }
+  }
+
   @keyframes upDown {
     0%, 100% {
       transform: translateY(0);

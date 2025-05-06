@@ -3,7 +3,7 @@ import headerImg from '../assets/headerImg.svg';
 
 const Main = () => {
   return (
-    <div className='flex flex-col-reverse md:flex-row justify-between items-center px-6 md:px-12 py-16 sm:bg-white bg-[linear-gradient(to_right,_#030014_0%,_#030014_30%,_#241059_45%,_#241059_55%,_#030014_70%,_#030014_100%)] text-white'>
+    <div className='landingPage flex flex-col-reverse md:flex-row justify-between items-center px-6 md:px-12 py-16 text-white'>
 
       {/* Left Content */}
       <div className='mt-[30px] md:mt-[300px] md:w-1/2 flex flex-col gap-6'>
