@@ -8,17 +8,27 @@
     background-color: #030014;
   }
 
-  @media (min-width:1500px) {
-    .landingPage{
-      background: linear-gradient(
-      to right,
-      #030014 0%,
-      #030014 30%,
-      #241059 45%,
-      #241059 55%,
-      #030014 70%,
-      #030014 100%
-    );
+  @media (min-width: 1500px) {
+    .landingPage {
+      background: repeating-linear-gradient(
+        to right,
+        #030014 0%,
+        #030014 15%,
+        #241059 25%,
+        #241059 35%,
+        #030014 50%
+      );
+      background-size: 200% 100%;
+      animation: flowGradient 10s linear infinite;
+    }
+  
+    @keyframes flowGradient {
+      0% {
+        background-position: 0% 0%;
+      }
+      100% {
+        background-position: 100% 0%;
+      }
     }
   }
 
@@ -30,3 +40,18 @@
       transform: translateY(-30px);
     }
   }
+
+  @keyframes gradient-border {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 400% 50%;
+    }
+  }
+  
+  .animate-gradient-border {
+    animation: gradient-border 10s linear infinite;
+    background-size: 400% 400%;
+  }
+  
