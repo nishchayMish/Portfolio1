@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+.bounce {
+    animation: upDown 2s ease-in-out infinite;
+  }
+  
+  @keyframes upDown {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-30px);
+    }
+  }
