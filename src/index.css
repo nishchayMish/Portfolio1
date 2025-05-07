@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body{
+  background-color: #030014;
+}
+
 .bounce {
     animation: upDown 2s ease-in-out infinite;
   }

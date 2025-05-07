@@ -4,6 +4,7 @@ import Main from './Main'
 import Overview from './Overview'
 import Experience from './Experience'
 import Projects from './Projects'
+import Skills from './Skills'
 
 const Hero = () => {
   return (
@@ -12,6 +13,7 @@ const Hero = () => {
         <Main/>
         <Overview />
         <Experience />
+        <Skills />
         <Projects />
     </div>
   )

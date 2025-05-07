@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
 import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGithub } from 'react-icons/fa';
 import { IoLogoFirebase } from "react-icons/io5";
+import { TbBrandThreejs } from "react-icons/tb";
+import { TbBrandFramerMotion } from "react-icons/tb";
 
 const Projects = () => {
   const projects = [
@@ -27,10 +29,11 @@ const Projects = () => {
     },
     {
       id: 4,
-      name: "Project 4",
-      description: "A brief summary of the project’s goals and technologies used to build it.",
+      name: "Recreated Apple's Iphone website",
+      description: "A clone of Apple's iPhone website using React and and used animation libraries like Three.js, Framer-motion, GSAP.",
       image: "https://via.placeholder.com/300x200",
-      technologies: [<FaReact className='text-blue-500' />, <FaNodeJs className='text-green-500' />, <FaHtml5 className='text-orange-500' />, <FaCss3Alt className='text-blue-500' />, <FaGithub className='text-gray-500' />],
+      technologies: [<FaReact className='text-blue-500' />, <FaHtml5 className='text-orange-500' />,
+       <FaCss3Alt className='text-blue-500' />, <TbBrandFramerMotion className='text-yellow-500'/>, <TbBrandThreejs className='text-blue-500'/>, <FaGithub className='text-gray-500' />],
     },
   ];
 
