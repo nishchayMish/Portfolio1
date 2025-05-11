@@ -1,31 +1,34 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 const container = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 200 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
       staggerChildren: 0.2,
-      duration: 0.6,
+      duration: 2,
       ease: 'easeOut',
     },
   },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0 },
 };
 
 const Contact = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
   return (
-    <div className="min-h-screen text-white py-16 px-4 md:px-10 flex items-center justify-center">
+    <div ref={ref} className="min-h-screen text-white py-16 px-4 md:px-10 flex items-center justify-center">
       <motion.div
         variants={container}
         initial="hidden"
-        animate="visible"
+        animate={isInView ? "visible" : "hidden"}
         className="w-full max-w-3xl mx-auto"
       >
         <motion.h2
@@ -43,7 +46,7 @@ const Contact = () => {
           variants={item}
           className="bg-white/5 backdrop-blur-lg p-8 rounded-xl border border-white/10 shadow-lg space-y-6"
         >
-          <div className="relative">
+          <motion.div variants={item} className="relative">
             <input
               type="text"
               name="name"
@@ -54,9 +57,9 @@ const Contact = () => {
             <label className="absolute left-4 top-2 text-sm text-gray-400 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-2 peer-focus:text-sm peer-focus:text-pink-400">
               Name
             </label>
-          </div>
+          </motion.div>
 
-          <div className="relative">
+          <motion.div variants={item} className="relative">
             <input
               type="email"
               name="email"
@@ -67,9 +70,9 @@ const Contact = () => {
             <label className="absolute left-4 top-2 text-sm text-gray-400 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-2 peer-focus:text-sm peer-focus:text-pink-400">
               Email
             </label>
-          </div>
+          </motion.div>
 
-          <div className="relative">
+          <motion.div variants={item} className="relative">
             <textarea
               name="message"
               rows="4"
@@ -80,14 +83,15 @@ const Contact = () => {
             <label className="absolute left-4 top-2 text-sm text-gray-400 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-2 peer-focus:text-sm peer-focus:text-pink-400">
               Message
             </label>
-          </div>
+          </motion.div>
 
-          <button
+          <motion.button
+            variants={item}
             type="submit"
             className="w-full py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold rounded-md hover:opacity-90 transition duration-300"
           >
             Send Message
-          </button>
+          </motion.button>
         </motion.form>
       </motion.div>
     </div>

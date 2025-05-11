@@ -1,12 +1,15 @@
 @import "tailwindcss";
 
-body{
-  background-color: #030014;
+html {
+  scroll-behavior: smooth;
 }
 
-.bounce {
-    animation: upDown 2s ease-in-out infinite;
-  }
+body{
+  background-color: #030014;
+  /* &::-webkit-scrollbar{
+    display: none;
+  } */
+}
   
   .landingPage{
     background-color: #030014;
@@ -33,15 +36,6 @@ body{
       100% {
         background-position: 100% 0%;
       }
-    }
-  }
-
-  @keyframes upDown {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-30px);
     }
   }
 

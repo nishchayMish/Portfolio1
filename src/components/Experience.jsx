@@ -1,23 +1,37 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import uno from '../assets/uno.png';
 import dos from '../assets/dos.png';
 
-const Experience = () => {
-  const experiences = [
-    {
-      id: 1,
-      title: 'Frontend Developer Intern',
-      description: 'Assisted in the development of a web-based platform using React.js enhancing interactivity.',
-      image: uno,
-    },
-    {
-      id: 2,
-      title: 'Freelance App Dev Project',
-      description: 'Led the dev of a mobile app for a client, from initial concept to deployment on app stores.',
-      image: dos,
-    },
-  ];
+const experiences = [
+  {
+    id: 1,
+    title: 'Frontend Developer Intern',
+    description: 'Assisted in the development of a web-based platform using React.js enhancing interactivity.',
+    image: uno,
+  },
+  {
+    id: 2,
+    title: 'Freelance App Dev Project',
+    description: 'Led the dev of a mobile app for a client, from initial concept to deployment on app stores.',
+    image: dos,
+  },
+];
 
+// Animation variant
+const cardVariant = {
+  hidden: { opacity: 0, y: 60 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut',
+    },
+  },
+};
+
+const Experience = () => {
   return (
     <div className="px-6 md:px-12 py-16 w-full bg-[#030014] text-white">
       <h1 className="mt-10 text-4xl md:text-4xl font-bold tracking-tight mb-12">
@@ -25,12 +39,16 @@ const Experience = () => {
       </h1>
 
       <div className="grid md:grid-cols-2 gap-8">
-        {experiences.map((exp) => (
-          <div
+        {experiences.map((exp, index) => (
+          <motion.div
             key={exp.id}
             className="relative overflow-hidden rounded-2xl p-[2px] group"
+            variants={cardVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
           >
-            {/* Glowing bar border effect */}
+            {/* Glowing border effect */}
             <div className="absolute inset-0 z-0 pointer-events-none">
               <div className="absolute w-full h-full animate-glowBar rounded-2xl border border-white/10" />
               <div className="glow-bar absolute w-[10px] h-[10px] bg-white rounded-full blur-[0.5px] animate-glowLine" />
@@ -48,11 +66,11 @@ const Experience = () => {
                 <p className="text-gray-300 leading-relaxed">{exp.description}</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 
-      {/* Keyframes and glowing bar style */}
+      {/* Glowing animation styles */}
       <style>{`
         @keyframes glowLine {
           0% {
