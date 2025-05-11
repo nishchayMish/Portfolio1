@@ -3,6 +3,10 @@ import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGithub } from 'react-icons/fa'
 import { IoLogoFirebase } from "react-icons/io5";
 import { TbBrandThreejs, TbBrandFramerMotion } from "react-icons/tb";
 import { motion, useInView } from 'framer-motion';
+import Netflix from '../assets/Netflix.png';
+import Apple from '../assets/Apple.png';
+import Crypto from '../assets/Crypto.png';
+import Hermes from '../assets/hermes.png';
 
 const Projects = () => {
   const sectionRef = useRef(null);
@@ -12,24 +16,32 @@ const Projects = () => {
     {
       id: 1,
       name: "Hermes Online Store",
+      image: Hermes,
+      link: "https://deluxe-figolla-c83de7.netlify.app/",
       description: "An e-commerce platform built using React, HTML, and CSS.",
       technologies: [<FaReact className='text-blue-500' />, <FaHtml5 className='text-orange-500' />, <FaCss3Alt className='text-blue-500' />, <FaGithub className='text-gray-500' />],
     },
     {
       id: 2,
       name: "Crypto Sphere",
+      link: "https://dainty-malasada-a9aefa.netlify.app/",
+      image: Crypto,
       description: "Track your favorite cryptocurrencies with real-time updates.",
       technologies: [<FaReact className='text-blue-500' />, <IoLogoFirebase className='text-yellow-500' />, <FaHtml5 className='text-orange-500' />, <FaCss3Alt className='text-blue-500' />, <FaGithub className='text-gray-500' />],
     },
     {
       id: 3,
       name: "Netflix Clone",
+      image: Netflix,
+      link: "https://luminous-nougat-82de9c.netlify.app/",
       description: "A clone of Netflix with Firebase authentication and movie listings.",
       technologies: [<FaReact className='text-blue-500' />, <IoLogoFirebase className='text-yellow-500' />, <FaHtml5 className='text-orange-500' />, <FaCss3Alt className='text-blue-500' />, <FaGithub className='text-gray-500' />],
     },
     {
       id: 4,
       name: "Apple iPhone Website Clone",
+      image: Apple,
+      link: "https://gilded-tanuki-c55166.netlify.app/",
       description: "Clone using Three.js and Framer Motion for advanced UI animations.",
       technologies: [<FaReact className='text-blue-500' />, <FaHtml5 className='text-orange-500' />, <FaCss3Alt className='text-blue-500' />, <TbBrandFramerMotion className='text-yellow-500' />, <TbBrandThreejs className='text-blue-500' />, <FaGithub className='text-gray-500' />],
     },
@@ -80,7 +92,7 @@ const Projects = () => {
               style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
             >
               <img
-                src="https://th.bing.com/th/id/R.78a13c9eb31108addb76f77ada4589ff?rik=b%2fIodCIvyGbxCA&riu=http%3a%2f%2ffiles.all-free-download.com%2fdownloadfiles%2fwallpapers%2f1920_1080%2fpeaceful_lake_wallpaper_landscape_nature_1208.jpg&ehk=6EYMLnN48Cs4mGNjCqvvjwaPz6MF2KRLIUOhJG57Z8g%3d&risl=&pid=ImgRaw&r=0"
+                src={project.image}
                 alt={project.name}
                 className='w-full h-48 object-cover rounded-md mb-4'
               />
@@ -88,9 +100,9 @@ const Projects = () => {
               <p className='text-white text-sm mb-4 flex-grow'>{project.description}</p>
               <div className='flex justify-between items-center mt-auto'>
                 <div className='flex space-x-2'>{project.technologies}</div>
-                <button className='bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-transform duration-200 transform hover:scale-105 hover:shadow-md'>
+                <a href={project.link} target='_blank' className='bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-transform duration-200 transform hover:scale-105 hover:shadow-md'>
                   Live Demo
-                </button>
+                </a>
               </div>
             </motion.div>
           );
