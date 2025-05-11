@@ -1,6 +1,7 @@
 import React from 'react';
 import headerImg from '../assets/headerImg.svg';
 import { motion } from 'framer-motion';
+import { FiDownload } from 'react-icons/fi';
 
 const textVariant = {
   hidden: { opacity: 0, x: -50 },
@@ -33,12 +34,12 @@ const buttonVariant = {
 const bounceVariant = {
   hidden: { y: 0 },
   visible: {
-    y: [0, -20, 0], // Smooth bounce effect with less extreme values
+    y: [0, -20, 0],
     transition: {
       duration: 2,
       repeat: Infinity,
       repeatType: "loop",
-      ease: "easeInOut", // Smooth and consistent easing
+      ease: "easeInOut",
     },
   },
 };
@@ -88,12 +89,17 @@ const Main = () => {
           , with a strong emphasis on performance, accessibility, and user experience. Whether it's designing intuitive UIs or writing clean, maintainable code, I focus on delivering excellence.
         </motion.p>
 
-        <motion.button
+        {/* Download CV Button */}
+        <motion.a
           variants={buttonVariant}
-          className='w-fit cursor-pointer px-6 py-3 mt-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:scale-105 transition text-white font-semibold shadow-lg'
+          whileHover={{ scale: 1.05, boxShadow: "0px 8px 20px rgba(0,0,0,0.2)" }}
+          href="/Nishchay_Mishra_CV.pdf"
+          download
+          className='w-fit inline-flex items-center gap-2 px-6 py-3 mt-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition text-white font-semibold shadow-lg'
         >
+          <FiDownload className='text-xl' />
           Download CV
-        </motion.button>
+        </motion.a>
       </motion.div>
 
       {/* Right Image with Smooth Bounce Effect */}
